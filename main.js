@@ -1,4 +1,3 @@
-
 rightWristX=0;
 leftWristX=0;
 difference=0;
@@ -8,15 +7,14 @@ function setup(){
     video.size(550, 500);
 
     canvas = createCanvas(550, 550);
-    canvas.center();
-    background("gray");
+    canvas.position(560, 150);
 
     poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses);
 }
 
 function modelLoaded(){
-console.log('PoseNet is Initialized');
+    console.log('PoseNet is initialized');
 }
 
 function gotPoses(results){
@@ -27,6 +25,10 @@ function gotPoses(results){
     }
 }
 function draw(){
-    background('#969A97');
+    background('#6C91C2');
 
+    document.getElementById("font_size").innerHTML="Font size of the text is = "+ difference +"px";
+    textSize(difference);
+    fill('black');
+    text('Sydney', 100, 300);
 }
